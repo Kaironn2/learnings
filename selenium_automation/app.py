@@ -18,3 +18,11 @@ driver.orders_page(
     start_date='01/03/2025',
     end_date='30/04/2025',
 )
+
+data = driver.search_and_launch(
+    order='100260860',
+    delivery_date='04/04/2025',
+)
+
+
+print('Data:', data)
