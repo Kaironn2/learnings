@@ -159,3 +159,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 icecream_dio_challenge/mlruns/161726363035860353/3201b1ca127d4ae28a1ce98640d98ec6/artifacts/model/model.pkl
+/icecream_dio_challenge/mlruns
