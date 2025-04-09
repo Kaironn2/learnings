@@ -13,30 +13,30 @@ class Customer(models.Model):
     )
     name = models.CharField(max_length=100, verbose_name='Nome')
     cpf = models.CharField(
-        max_length=14, 
-        unique=True, 
+        max_length=14,
+        unique=True,
         blank=True,
         null=True,
         verbose_name='CPF',
     )
     phone = models.CharField(
-        max_length=15, 
+        max_length=15,
         blank=True,
         null=True,
         verbose_name='Telefone'
     )
     created_at = models.DateTimeField(
-        auto_now_add=True, 
+        auto_now_add=True,
         verbose_name='Criado em'
     )
     updated_at = models.DateTimeField(
-        auto_now=True, 
+        auto_now=True,
         verbose_name='Atualizado em'
     )
 
     class Meta:
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
-    
+
     def __str__(self):
         return self.name

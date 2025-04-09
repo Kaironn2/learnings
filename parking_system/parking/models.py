@@ -1,7 +1,6 @@
 from django.db import models
 
 from vehicles.models import Vehicle
-from customers.models import Customer
 
 
 class ParkingSpot(models.Model):
@@ -29,7 +28,7 @@ class ParkingSpot(models.Model):
 
     def __str__(self):
         return self.spot_number
-    
+
 
 class ParkingRecord(models.Model):
     vehicle = models.ForeignKey(
@@ -65,6 +64,6 @@ class ParkingRecord(models.Model):
     class Meta:
         verbose_name = 'Registro de Estacionamento'
         verbose_name_plural = 'Registros de Estacionamento'
-    
+
     def __str__(self):
         return f'{self.vehicle} - {self.parking_spot} - {self.entry_time}'

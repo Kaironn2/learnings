@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from parking.models import ParkingRecord, ParkingSpot
-from vehicles.models import Vehicle
 
 
 @admin.register(ParkingSpot)
@@ -20,6 +19,6 @@ class ParkingRecordAdmin(admin.ModelAdmin):
         if db_field.name == 'parking_spot' and request.resolver_match.url_name.endswith('add'):
             kwargs['queryset'] = ParkingSpot.objects.filter(is_occupied=False)
         elif db_field.name == 'vehicle' and request.resolver_match.url_name.endswith('add'):
-            #TODO - filter vehicles that are not already parked
+            # TODO - filter vehicles that are not already parked
             pass
         return super().formfield_for_foreignkey(db_field, request, **kwargs)

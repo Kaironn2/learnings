@@ -5,7 +5,7 @@ from customers.models import Customer
 
 class VehicleType(models.Model):
     name = models.CharField(
-        max_length=50, 
+        max_length=50,
         verbose_name='Nome',
         unique=True,
     )
@@ -15,11 +15,11 @@ class VehicleType(models.Model):
         verbose_name='Descrição',
     )
     created_at = models.DateTimeField(
-        auto_now_add=True, 
+        auto_now_add=True,
         verbose_name='Criado em',
     )
     updated_at = models.DateTimeField(
-        auto_now=True, 
+        auto_now=True,
         verbose_name='Atualizado em'
     )
 
@@ -29,7 +29,7 @@ class VehicleType(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 class Vehicle(models.Model):
     vehicle_type = models.ForeignKey(
@@ -41,8 +41,8 @@ class Vehicle(models.Model):
         verbose_name='Tipo de Veículo',
     )
     license_plate = models.CharField(
-        max_length=8, 
-        unique=True, 
+        max_length=8,
+        unique=True,
         verbose_name='Placa',
     )
     brand = models.CharField(
@@ -72,14 +72,13 @@ class Vehicle(models.Model):
         verbose_name='Proprietário',
     )
     created_at = models.DateTimeField(
-        auto_now_add=True, 
+        auto_now_add=True,
         verbose_name='Criado em',
     )
     updated_at = models.DateTimeField(
-        auto_now=True, 
+        auto_now=True,
         verbose_name='Atualizado em'
     )
-
 
     class Meta:
         verbose_name = 'Veículo'
