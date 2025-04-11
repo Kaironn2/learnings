@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_spectacular',
 
     'authentication',
     'customers',
@@ -73,8 +74,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'parking_system',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'parking_db',
+        'PORT': '5432',
     }
 }
 
@@ -280,11 +285,17 @@ REST_FRAMEWORK = {
         'dj_rql.drf.RQLFilterBackend',
     ],
 
-    # 'DEFAULT_PERMISSION_CLASSES': [
-    #     'rest_framework.permissions.IsAuthenticated',
-    # ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
+}
+
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Poseidon Parking API',
+    'DESCRIPTION': 'parking system',
+    'VERSION': '1.0.0',
+    # 'SERVE_INCLUDE_SCHEMA': False,
 }
